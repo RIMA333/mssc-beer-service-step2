@@ -1,4 +1,4 @@
-package web.controller;
+package guru.springframework.msscbeerservice2.web.controller;
 
 import java.util.UUID;
 
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import web.model.BeerDto;
+import guru.springframework.msscbeerservice2.web.model.BeerDto;
 
 @RequestMapping("/api/v1/beer")
 @RestController

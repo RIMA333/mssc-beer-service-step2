@@ -15,7 +15,8 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import web.model.BeerDto;
+import guru.springframework.msscbeerservice2.web.controller.BeerController;
+import guru.springframework.msscbeerservice2.web.model.BeerDto;
 
 @WebMvcTest(BeerController.class)
 class BeerControllerTest {

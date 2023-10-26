@@ -78,7 +78,12 @@
 		    <artifactId>h2</artifactId>
 		    <scope>runtime</scope>
 		</dependency>
-
+		<!-- https://mvnrepository.com/artifact/org.asynchttpclient/async-http-client -->
+		<dependency>
+		    <groupId>org.asynchttpclient</groupId>
+		    <artifactId>async-http-client</artifactId>
+		    <version>2.12.3</version>
+		</dependency>
 		
 	</dependencies>
 
@@ -98,5 +103,10 @@
 			</plugin>
 		</plugins>
 	</build>
+	
+	<repositories>
+		<repository>
+		</repository>
+	</repositories>
 
 </project>
