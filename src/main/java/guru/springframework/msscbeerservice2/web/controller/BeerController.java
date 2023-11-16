@@ -27,7 +27,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import guru.springframework.msscbeerservice2.services.BeerService;
 import guru.springframework.msscbeerservice2.web.model.BeerDto;
+import lombok.val;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Validated
 @RequestMapping("/api/v1/beer")
 @RestController
@@ -41,11 +44,12 @@ public class BeerController {
 	}
 	
 	@PostMapping
-	public ResponseEntity saveNewBeer(@Valid @NotNull @RequestBody BeerDto beerDto) {
+	public ResponseEntity saveNewBeer(@Validated @NotNull @RequestBody BeerDto beerDto) {
 		
-		BeerDto newBeer = beerService.saveBeerDto(beerDto);
+		//BeerDto newBeer = beerService.saveBeerDto(beerDto);
+		val newBeer = beerService.saveBeerDto(beerDto);
 		
-		HttpHeaders httpHeaders = new HttpHeaders();
+		var httpHeaders = new HttpHeaders();
 		
 		httpHeaders.add("Location", "/api/v1/beer"+newBeer.getId().toString());
 		
@@ -53,7 +57,7 @@ public class BeerController {
 	}
 	
 	@PutMapping("/{beerId}")
-	public ResponseEntity updateBeerById(@PathVariable("beerId") UUID beerId,@Valid @RequestBody BeerDto beerDto){
+	public ResponseEntity updateBeerById(@PathVariable("beerId") UUID beerId,@Validated @RequestBody BeerDto beerDto){
 		
 		beerService.updateBeerDto(beerId, beerDto);
 		

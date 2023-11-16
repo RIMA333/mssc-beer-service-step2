@@ -15,9 +15,13 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>mssc-beer-service-step2</name>
 	<description>MSSC Beer Service - Step 2</description>
+
 	<properties>
 		<java.version>11</java.version>
+		<mapstruc.version>1.4.2.Final</mapstruc.version>
+		<org.spring.lombok>1.18.18	</org.spring.lombok>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -38,6 +42,13 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
+			<version>${org.spring.lombok}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct -->
+		<dependency>
+		    <groupId>org.mapstruct</groupId>
+		    <artifactId>mapstruct</artifactId>
+		    <version>${mapstruc.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -108,6 +119,32 @@
 						</exclude>
 					</excludes>
 				</configuration>
+			</plugin>
+			<plugin>
+			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
+		    	<groupId>org.apache.maven.plugins</groupId>
+		    	<artifactId>maven-compiler-plugin</artifactId>
+		    <configuration>
+		    	<annotationProcessorPaths>
+		    		<annotationProcessorPath>
+		    			<groupId>org.mapstruct</groupId>
+		    			<artifactId>mapstruct-processor</artifactId>
+		    		</annotationProcessorPath>
+		    		<annotationProcessorPath>
+						<groupId>org.projectlombok</groupId>
+						<artifactId>lombok</artifactId>
+						<version>${lombok.version}</version>
+		    		</annotationProcessorPath>
+		    		<annotationProcessorPath>
+						<groupId>org.projectlombok</groupId>
+						<artifactId>lombok-mapstruct-binding</artifactId>
+						<version>0.2.0</version>
+		    		</annotationProcessorPath>
+		    	</annotationProcessorPaths>
+		    	<compilerArgs>
+		    		<compilerArg>-Amapstruct.defaultComponentModel=spring</compilerArg>
+		    	</compilerArgs>
+		    </configuration>	
 			</plugin>
 		</plugins>
 	</build>

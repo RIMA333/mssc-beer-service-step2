@@ -5,6 +5,7 @@ import java.time.OffsetDateTime;
 import java.util.UUID;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
 import javax.validation.constraints.Positive;
 
@@ -22,18 +23,26 @@ public class BeerDto {
 	@Null
 	private UUID id;
 	
-	@NotBlank
+	@Null
 	private Integer version;
 	
+	@Null
 	private OffsetDateTime createdDate;
+	@Null(message = "lastModifiedDate null")
 	private OffsetDateTime lastModifiedDate;
 	
-	private String beerName;
 	@NotBlank
+	private String beerName;
+	
+	@NotNull
 	private BeerStyleEnum beerStyle;
+	
+	@NotNull
 	@Positive
 	private Long upc;
 	
+	@NotNull
+	@Positive
 	private BigDecimal price;
 
 	private Integer quantityOnHand;
